@@ -20,6 +20,15 @@ const concesionaria = {
     var autosNoVendidos = this.autos.filter(function(auto){
      return auto.vendido == false
  }); return autosNoVendidos
- }
+ },
+ autosNuevos: function(){
+ let enVenta = this.autosParaLaVenta();
+ let nuevos = enVenta.filter(function(auto){
+     return auto.km < 100
+ }); return nuevos
+  //  if (this.autosParaLaVenta.km < 100){
+       // var autos0km = this.autosParaLaVenta
+  // return this.autosParaLaVenta(); }  
+ } 
 }
-console.log(concesionaria.autosParaLaVenta())
+console.log(concesionaria.autosNuevos())
