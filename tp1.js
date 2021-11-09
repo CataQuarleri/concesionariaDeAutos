@@ -3,11 +3,11 @@
 const autos = require('./autos.js') /* requerir módulo autos */
 
 const concesionaria = {
-   autos,
+   autos: autos,
    buscarAuto: function (patente) {
        for (let i = 0; i < autos.length; i++){
        if (autos[i].patente === patente){
-           return autos[i]
+           return this.autos[i]
        } else {
            return null
        }
