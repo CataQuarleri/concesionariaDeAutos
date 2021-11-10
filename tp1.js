@@ -1,6 +1,7 @@
 
 
 const autos = require('./autos.js') /* requerir módulo autos */
+const personas = require('./persona.js')
 
 const concesionaria = {
    autos: autos,
@@ -71,8 +72,13 @@ return autoPriceList
 }, 0) 
 return resultado
 },
-puedeComprar: function(total, cuota){
-   
+puedeComprar: function(){
+    let autosEnVenta = this.autosParaLaVenta();
+    let disponibles = autosEnVenta.forEach(auto){
+        
+    }
+  let valorDeCuota = this.autos.precio / this.autos.cuotas
+  console.log("cuota", valorDeCuota)
 }
 }
-console.log(concesionaria.totalDeVentas())
+console.log(concesionaria.puedeComprar())
