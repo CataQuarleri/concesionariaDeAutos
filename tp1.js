@@ -7,15 +7,16 @@ const concesionaria = {
    buscarAuto: function (patente) {
        for (let i = 0; i < autos.length; i++){
        if (autos[i].patente === patente){
+        //    console.log("foundAuto", this.autos[i])
            return this.autos[i]
-       } else {
-           return null
-       }
-       }
-   },
-   venderAuto: function (patente){
-           this.buscarAuto(patente).vendido = true
-   },
+       } 
+       } return null
+       },
+       venderAuto: function (patente){
+        let autoEncontrado = this.buscarAuto(patente)
+        autoEncontrado.vendido = true
+        return autoEncontrado
+    },
    autosParaLaVenta: function(){
     var autosNoVendidos = this.autos.filter(function(auto){
      return auto.vendido == false
@@ -29,6 +30,49 @@ const concesionaria = {
   //  if (this.autosParaLaVenta.km < 100){
        // var autos0km = this.autosParaLaVenta
   // return this.autosParaLaVenta(); }  
- } 
+ } ,
+
+ listaDeVentas: function(){
+    //  let vendidos = [];
+    //  let sold = function(){if(this.autos.vendido === true){
+        //   vendidos.push()
+    //  }
+    // };
+    //  console.log("???", sold)
+    // console.log("allAutos", this.autos)
+
+    let autoPriceList = []
+    let totalVentas = this.autos.filter(auto => 
+        {
+            if(auto.vendido === true) {
+            autoPriceList.push(auto.precio)
+    }
+})
+
+return autoPriceList
+
+    //  let totalVentas = this.autos.reduce((acumulador, auto) => {
+    //     //  console.log("precio", auto)
+    //      if(auto.vendido === true){
+    //     acumulador.push(auto.precio)
+    //      } 
+    //      return acumulador
+    // }, [])
+    // //  console.log("totalVentas", totalVentas)
+    //  return totalVentas
+ },
+ totalDeVentas: function(){
+
+    let totalVentas = this.listaDeVentas()
+    let resultado = totalVentas.reduce((acumulador, precio) => {
+        // if(auto.vendido === true) {
+        acumulador += precio
+     return acumulador
+}, 0) 
+return resultado
+},
+puedeComprar: function(total, cuota){
+   
 }
-console.log(concesionaria.autosNuevos())
+}
+console.log(concesionaria.totalDeVentas())

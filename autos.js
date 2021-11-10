@@ -8,7 +8,7 @@ let autos = [
         cuotas: 12,
         anio: 2019,
         patente: 'APL123',
-        vendido: false
+        vendido: true
     },
         {
         marca: 'Toyota',
@@ -19,7 +19,7 @@ let autos = [
         cuotas: 14,
         anio: 2019,
         patente: 'JJK116',
-        vendido: false
+        vendido: true
     }
 ]
 module.exports = autos
