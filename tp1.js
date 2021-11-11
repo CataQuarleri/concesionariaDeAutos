@@ -72,13 +72,46 @@ return autoPriceList
 }, 0) 
 return resultado
 },
-puedeComprar: function(){
-    let autosEnVenta = this.autosParaLaVenta();
-    let disponibles = autosEnVenta.forEach(auto){
-        
-    }
-  let valorDeCuota = this.autos.precio / this.autos.cuotas
-  console.log("cuota", valorDeCuota)
+puedeComprar: function(unAuto, unaPersona){
+//     let autoAComprar = this.buscarAuto(unAuto);
+//     let valorDeCuota = autoAComprar.precio / autoAComprar.cuotas;
+//     // let unaPersona = personas
+//     // let valorDeCuota = autosEnVenta.forEach(auto => {
+//     //     let montoCuota = auto.precio / auto.cuotas
+//     //     return montoCuota
+//     // });
+//   console.log("cuota", valorDeCuota, " precio del auto: ", autoAComprar.precio)
+//   console.log('capacidad de pago en cuota: ', unaPersona.capacidadDePagoEnCuotas)
+// //   console.log('capacidad de pago total ')
+//    console.log( " capacidad de pago total ", unaPersona.capacidadDePagoTotal)
+//   if (unaPersona.capacidadDePagoEnCuotas > valorDeCuota && unaPersona.capacidadDePagoTotal >= autoAComprar.precio){
+//          return true
+//     }  
+    // else {
+    //     return false
+    // }  
+    let valorDeCuota = unAuto.precio / unAuto.cuotas;
+    if (unaPersona.capacidadDePagoEnCuotas >= valorDeCuota && unaPersona.capacidadDePagoTotal >= unAuto.precio){
+        return true
+   }  
+   else {
+       return false
+   }  
+   }  
 }
-}
-console.log(concesionaria.puedeComprar())
+
+console.log(concesionaria.puedeComprar(        {
+    marca: 'Toyota',
+    modelo: 'Corolla',
+    precio: 200000,
+    km: 0,
+    color: 'Blanco',
+    cuotas: 14,
+    anio: 2019,
+    patente: 'JJK116',
+    vendido: false
+}, {
+    nombre: 'Juan',
+    capacidadDePagoEnCuotas: 20000,
+    capacidadDePagoTotal: 100000
+    }))
